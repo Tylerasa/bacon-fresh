@@ -1,15 +1,19 @@
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
 import React from "react";
 import { FontAwesome } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import PayoutItem from "../components/PayoutItem";
 export default function Welcome() {
   return (
-    <ScrollView>
+    <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.header}>
         <Text style={{ fontSize: 24 }}>Welcome back, Nigel</Text>
-        <FontAwesome name="user-circle" size={40} color="black" />
+        <Image
+          style={styles.profile}
+          source={require("../assets/images/profile.png")}
+        />
       </View>
       <View style={styles.dropdown}>
         <Text>Last 7 Days</Text>
@@ -45,6 +49,7 @@ export default function Welcome() {
         </View>
       </View>
       <Text style={styles.payoutText}>Payout</Text>
+      <PayoutItem />
     </ScrollView>
   );
 }
@@ -55,6 +60,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    paddingBottom: 20,
   },
   dropdown: {
     backgroundColor: "white",
@@ -108,6 +114,11 @@ const styles = StyleSheet.create({
     color: "#111",
     fontSize: 22,
     marginTop: 15,
-    fontWeight: "500"
+    fontWeight: "500",
+    marginBottom: 20,
+  },
+  profile: {
+    width: 50,
+    height: 50,
   },
 });
