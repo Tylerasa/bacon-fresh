@@ -52,7 +52,7 @@ export default function PayoutItem() {
         <Image style={styles.tinyLogo} source={image} />
         <View style={styles.text}>
           <Text style={styles.cardMain}>{name}</Text>
-          <Text>{text}</Text>
+          <Text style={{fontFamily: "regular"}}>{text}</Text>
         </View>
       </View>
       <View
@@ -99,12 +99,12 @@ const styles = StyleSheet.create({
   },
   itemText: {
     color: "#010b67",
-    fontWeight: "bold",
     marginRight: 10,
+    fontFamily: "bold"
   },
   cardMain: {
     fontSize: 18,
-    fontWeight: "bold",
+    fontFamily: "bold",
   },
   text: {
     marginLeft: 10,

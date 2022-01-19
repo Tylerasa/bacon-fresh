@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
 import React from "react";
-import { FontAwesome } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -9,14 +8,14 @@ export default function Welcome() {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.header}>
-        <Text style={{ fontSize: 24 }}>Welcome back, Nigel</Text>
+        <Text style={{ fontSize: 24, fontFamily: "regular" }}>Welcome back, Nigel</Text>
         <Image
           style={styles.profile}
           source={require("../assets/images/profile.png")}
         />
       </View>
       <View style={styles.dropdown}>
-        <Text>Last 7 Days</Text>
+        <Text style={{fontFamily: "regular"}}>Last 7 Days</Text>
         <AntDesign
           style={{ paddingHorizontal: 7 }}
           name="down"
@@ -85,11 +84,13 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#ecf0f7",
     textAlign: "center",
+    fontFamily: "regular"
   },
   mainCardTite: {
     fontSize: 40,
     color: "white",
     textAlign: "center",
+    fontFamily: "bold"
   },
   miniMenu: {
     flexDirection: "row",
@@ -105,10 +106,12 @@ const styles = StyleSheet.create({
   miniMeniItemNumber: {
     color: "#010b67",
     fontSize: 40,
+    fontFamily: "bold"
   },
   miniMeniItemText: {
     color: "#b4b6c8",
     fontSize: 14,
+    fontFamily: "regular"
   },
   payoutText: {
     color: "#111",
@@ -116,6 +119,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
     fontWeight: "500",
     marginBottom: 20,
+    fontFamily: "bold"
   },
   profile: {
     width: 50,
