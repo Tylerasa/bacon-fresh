@@ -3,25 +3,24 @@ import {
   Text,
   View,
   ScrollView,
-  TouchableOpacity,
+  TouchableHighlight,
   Image,
 } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
-import {
-    LineChart,
-  } from "react-native-chart-kit";
+import { LineChart } from "react-native-chart-kit";
 export default function Overview() {
+  const graphData = [3, 4, 6, 7, 9, 0, 1, 5];
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <StatusBar translucent style="auto" />
 
       <View style={styles.header}>
-        <TouchableOpacity>
+        <TouchableHighlight>
           <AntDesign name="arrowleft" size={24} color="black" />
-        </TouchableOpacity>
+        </TouchableHighlight>
         <View style={styles.info}>
           <Image
             style={styles.tinyLogo}
@@ -71,50 +70,58 @@ export default function Overview() {
           </View>
         </View>
       </View>
-      <Text>Bezier Line Chart</Text>
-  <LineChart
-    data={{
-      labels: ["January", "February", "March", "April", "May", "June"],
-      datasets: [
-        {
-          data: [
-            Math.random() * 100,
-            Math.random() * 100,
-            Math.random() * 100,
-            Math.random() * 100,
-            Math.random() * 100,
-            Math.random() * 100
-          ]
-        }
-      ]
-    }}
-    width={Dimensions.get("window").width} // from react-native
-    height={220}
-    yAxisLabel="$"
-    yAxisSuffix="k"
-    yAxisInterval={1} // optional, defaults to 1
-    chartConfig={{
-      backgroundColor: "#e26a00",
-      backgroundGradientFrom: "#fb8c00",
-      backgroundGradientTo: "#ffa726",
-      decimalPlaces: 2, // optional, defaults to 2dp
-      color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-      labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-      style: {
-        borderRadius: 16
-      },
-      propsForDots: {
-        r: "6",
-        strokeWidth: "2",
-        stroke: "#ffa726"
-      }
-    }}
-    bezier
-    style={{
-      marginVertical: 8,
-      borderRadius: 16
-    }}
-  />
+
+      <View style={styles.graph}>
+        <Text style={{ fontSize: 20, fontFamily: "bold", color: "#010b67" }}>
+          Daily Breakdown
+        </Text>
+        <Text
+          style={{ fontFamily: 14, fontFamily: "regular", color: "#b4b6c8" }}
+        >
+          January 6, 2021
+        </Text>
+        <View style={styles.bars}>
+          {graphData.map((ele, i) => {
+            return (
+              <TouchableHighlight
+                activeOpacity={0.6}
+                underlayColor="#010b67"
+                key={i}
+              >
+                <View>
+                  <View
+                    style={{ ...styles.bar, ...{ height: 15 * ele } }}
+                  ></View>
+                  <Text style={styles.graphText}>{ele}</Text>
+                </View>
+              </TouchableHighlight>
+            );
+          })}
+        </View>
+        <View style={{ marginTop: 10 }}>
+          <View style={styles.textRow}>
+            <View>
+              <Text style={styles.textMain}>$45.32</Text>
+              <Text style={styles.textSub}>Commissions</Text>
+            </View>
+            <View>
+              <Text style={styles.textMain}>4.3%</Text>
+              <Text style={styles.textSub}>Conversion Rate</Text>
+            </View>
+          </View>
+          <View style={styles.textRow}>
+            <View>
+              <Text style={styles.textMain}>173</Text>
+              <Text style={styles.textSub}>Views</Text>
+            </View>
+            <View>
+              <Text style={styles.textMain}>14</Text>
+              <Text style={styles.textSub}>Clicks</Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <Text style={{fontFamily: "bold", fontSize: 18, marginBottom: 10}}>Traffic</Text>
     </ScrollView>
   );
 }
@@ -176,5 +183,42 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     marginTop: 20,
+  },
+  graph: {
+    marginTop: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 20,
+  },
+  bars: {
+    flexDirection: "row",
+    transform: [{ rotate: "180deg" }],
+  },
+  bar: {
+    width: 30,
+    backgroundColor: "#b4b6c8",
+    marginHorizontal: 5,
+    borderRadius: 5,
+  },
+  graphText: {
+    transform: [{ rotate: "180deg" }],
+    textAlign: "center",
+    fontFamily: "regular",
+    color: "#010b67",
+  },
+  textRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 10
+  },
+  textMain: {
+    fontSize: 18,
+    fontFamily: "bold",
+    color: "#010b67",
+  },
+  textSub: {
+    fontSize: 14,
+    color: "#b4b6c8",
+    fontFamily: "regular"
   },
 });
