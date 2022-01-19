@@ -16,7 +16,11 @@ export default function App() {
   } else {
     return (
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
           <Stack.Screen name="Welcome" component={Welcome} />
           <Stack.Screen name="Overview" component={Overview} />
         </Stack.Navigator>

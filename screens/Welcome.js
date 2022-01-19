@@ -6,7 +6,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import PayoutItem from "../components/PayoutItem";
 import { StatusBar } from "expo-status-bar";
 
-export default function Welcome() {
+export default function Welcome({navigation}) {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <StatusBar translucent style="auto" />
@@ -53,7 +53,7 @@ export default function Welcome() {
         </View>
       </View>
       <Text style={styles.payoutText}>Payout</Text>
-      <PayoutItem />
+      <PayoutItem navigation={navigation} />
     </ScrollView>
   );
 }
@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ecf0f7",
     paddingTop: 30,
     paddingHorizontal: 20,
+    paddingBottom:40
   },
   header: {
     display: "flex",

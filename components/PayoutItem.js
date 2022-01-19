@@ -4,11 +4,11 @@ import {
   View,
   Image,
   FlatList,
-  ScrollView,
+  TouchableOpacity,
 } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
-export default function PayoutItem() {
+export default function PayoutItem({ navigation }) {
   const images = [
     {
       id: 1,
@@ -48,31 +48,33 @@ export default function PayoutItem() {
     },
   ];
   const Item = ({ name, text, image }) => (
-    <View style={styles.card}>
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <Image style={styles.tinyLogo} source={image} />
-        <View style={styles.text}>
-          <Text style={styles.cardMain}>{name}</Text>
-          <Text style={{ fontFamily: "regular" }}>{text}</Text>
+    <TouchableOpacity onPress={() => navigation.navigate("Overview")}>
+      <View style={styles.card}>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <Image style={styles.tinyLogo} source={image} />
+          <View style={styles.text}>
+            <Text style={styles.cardMain}>{name}</Text>
+            <Text style={{ fontFamily: "regular" }}>{text}</Text>
+          </View>
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <Text style={styles.itemText}>$787.7</Text>
+          <AntDesign name="right" size={14} color="#b4b6c8" />
         </View>
       </View>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
-        <Text style={styles.itemText}>$787.7</Text>
-        <AntDesign name="right" size={14} color="#b4b6c8" />
-      </View>
-    </View>
+    </TouchableOpacity>
   );
 
   const renderItem = ({ item }) => (
