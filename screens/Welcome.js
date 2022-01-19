@@ -28,7 +28,7 @@ export default function Welcome() {
         <Text style={styles.mainCardTite}>$4,179.02</Text>
         <Text style={styles.mainCardText}>
           <AntDesign name="arrowup" size={10} color="#00ff00" />
-          <Text style={{ color: "#00ff00" }}>16%</Text> over the last month
+          <Text style={{ color: "#38a976" }}>16%</Text> over the last month
         </Text>
       </View>
       <View style={styles.miniMenu}>

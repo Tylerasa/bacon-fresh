@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import Welcome from "./screens/Welcome";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
-import PayoutItem from "./components/PayoutItem";
+import Overview from "./screens/Overview";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -18,7 +18,7 @@ export default function App() {
       <View style={styles.container}>
         <StatusBar translucent style="auto" />
         {/* <Welcome /> */}
-        <PayoutItem />
+        <Overview/>
       </View>
     );
   }

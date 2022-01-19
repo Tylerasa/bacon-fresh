@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, Image, FlatList, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  FlatList,
+  ScrollView,
+} from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 export default function PayoutItem() {
@@ -52,7 +59,7 @@ export default function PayoutItem() {
         <Image style={styles.tinyLogo} source={image} />
         <View style={styles.text}>
           <Text style={styles.cardMain}>{name}</Text>
-          <Text style={{fontFamily: "regular"}}>{text}</Text>
+          <Text style={{ fontFamily: "regular" }}>{text}</Text>
         </View>
       </View>
       <View
@@ -72,13 +79,11 @@ export default function PayoutItem() {
     <Item name={item.name} text={item.text} image={item.image} />
   );
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
-      <FlatList
-        data={images}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
-    </ScrollView>
+    <FlatList
+      data={images}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.id}
+    />
   );
 }
 
@@ -100,7 +105,7 @@ const styles = StyleSheet.create({
   itemText: {
     color: "#010b67",
     marginRight: 10,
-    fontFamily: "bold"
+    fontFamily: "bold",
   },
   cardMain: {
     fontSize: 18,
