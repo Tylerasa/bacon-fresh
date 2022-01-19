@@ -9,10 +9,13 @@ import {
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import { StatusBar } from "expo-status-bar";
 
 export default function Overview() {
   return (
-    <ScrollView>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+      <StatusBar translucent style="auto" />
+
       <View style={styles.header}>
         <TouchableOpacity>
           <AntDesign name="arrowleft" size={24} color="black" />

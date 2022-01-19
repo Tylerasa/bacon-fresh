@@ -4,18 +4,23 @@ import { AntDesign } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import PayoutItem from "../components/PayoutItem";
+import { StatusBar } from "expo-status-bar";
+
 export default function Welcome() {
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+      <StatusBar translucent style="auto" />
       <View style={styles.header}>
-        <Text style={{ fontSize: 24, fontFamily: "regular" }}>Welcome back, Nigel</Text>
+        <Text style={{ fontSize: 24, fontFamily: "regular" }}>
+          Welcome back, Nigel
+        </Text>
         <Image
           style={styles.profile}
           source={require("../assets/images/profile.png")}
         />
       </View>
       <View style={styles.dropdown}>
-        <Text style={{fontFamily: "regular"}}>Last 7 Days</Text>
+        <Text style={{ fontFamily: "regular" }}>Last 7 Days</Text>
         <AntDesign
           style={{ paddingHorizontal: 7 }}
           name="down"
@@ -54,6 +59,12 @@ export default function Welcome() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#ecf0f7",
+    paddingTop: 30,
+    paddingHorizontal: 20,
+  },
   header: {
     display: "flex",
     flexDirection: "row",
@@ -84,13 +95,13 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#ecf0f7",
     textAlign: "center",
-    fontFamily: "regular"
+    fontFamily: "regular",
   },
   mainCardTite: {
     fontSize: 40,
     color: "white",
     textAlign: "center",
-    fontFamily: "bold"
+    fontFamily: "bold",
   },
   miniMenu: {
     flexDirection: "row",
@@ -106,12 +117,12 @@ const styles = StyleSheet.create({
   miniMeniItemNumber: {
     color: "#010b67",
     fontSize: 40,
-    fontFamily: "bold"
+    fontFamily: "bold",
   },
   miniMeniItemText: {
     color: "#b4b6c8",
     fontSize: 14,
-    fontFamily: "regular"
+    fontFamily: "regular",
   },
   payoutText: {
     color: "#111",
@@ -119,7 +130,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
     fontWeight: "500",
     marginBottom: 20,
-    fontFamily: "bold"
+    fontFamily: "bold",
   },
   profile: {
     width: 50,

@@ -1,10 +1,10 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
 import Welcome from "./screens/Welcome";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
 import Overview from "./screens/Overview";
-
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+const Stack = createNativeStackNavigator();
 export default function App() {
   let [fontsLoaded] = useFonts({
     regular: require("./assets/fonts/DMSans-Regular.ttf"),
@@ -15,19 +15,12 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <View style={styles.container}>
-        <StatusBar translucent style="auto" />
-        {/* <Welcome /> */}
-        <Overview/>
-      </View>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Welcome" component={Welcome} />
+          <Stack.Screen name="Overview" component={Overview} />
+        </Stack.Navigator>
+      </NavigationContainer>
     );
   }
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#ecf0f7",
-    paddingTop: 30,
-    paddingHorizontal: 20,
-  },
-});
